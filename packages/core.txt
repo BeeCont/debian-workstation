@@ -1,0 +1,24 @@
+# @name: Core System
+# @description: Minimal packages required for system bootstrap, repository management and secure network communication.
+# @risk: Low
+
+# @package: sudo
+# @why: Allows running commands with root privileges without logging in as root permanently.
+
+# @package: git
+# @why: Required for cloning the workstation repository and working with source code.
+
+# @package: curl
+# @why: Used by installation scripts, APIs, downloads and software installation.
+
+# @package: wget
+# @why: Simple and reliable tool for downloading files.
+
+# @package: ca-certificates
+# @why: Provides trusted CA certificates required for secure HTTPS connections.
+
+# @packages
+sudo
+git
+curl
+ca-certificates
