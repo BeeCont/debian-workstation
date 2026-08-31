@@ -11,9 +11,6 @@
 # @package: curl
 # @why: Used by installation scripts, APIs, downloads and software installation.
 
-# @package: wget
-# @why: Simple and reliable tool for downloading files.
-
 # @package: ca-certificates
 # @why: Provides trusted CA certificates required for secure HTTPS connections.
 
