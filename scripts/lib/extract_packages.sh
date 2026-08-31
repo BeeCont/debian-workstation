@@ -35,7 +35,12 @@ load_package_group() {
 
     while IFS= read -r line || [[ -n "$line" ]]; do
 
+        # Skip empty lines.
         [[ -z "$line" ]] && continue
+
+        # ----------------------------------------------------
+        # Group metadata
+        # ----------------------------------------------------
 
         if [[ "$line" =~ ^[[:space:]]*#[[:space:]]*@name:[[:space:]]*(.*)$ ]]; then
             GROUP_NAME="${BASH_REMATCH[1]}"
@@ -52,6 +57,10 @@ load_package_group() {
             continue
         fi
 
+        # ----------------------------------------------------
+        # Package metadata
+        # ----------------------------------------------------
+
         if [[ "$line" =~ ^[[:space:]]*#[[:space:]]*@package:[[:space:]]*(.*)$ ]]; then
             current_package="${BASH_REMATCH[1]}"
             PACKAGE_METADATA_NAMES+=("$current_package")
@@ -67,6 +76,10 @@ load_package_group() {
             PACKAGE_WHY["$current_package"]="${BASH_REMATCH[1]}"
             continue
         fi
+
+        # ----------------------------------------------------
+        # Package list
+        # ----------------------------------------------------
 
         if [[ "$line" =~ ^[[:space:]]*#[[:space:]]*@packages[[:space:]]*$ ]]; then
             packages_started=1
